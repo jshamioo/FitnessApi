@@ -21,14 +21,14 @@ public class ExercisesController : ControllerBase
     }
 
     [HttpPost]
-    public ExerciseResponse CreateExercise([FromBody] ExerciseRequest exerciseRequest)
+    public ExerciseResponse CreateExercise([FromBody] CreateExerciseRequest createExerciseRequest)
     {
-        return new ExerciseResponse(Guid.NewGuid(), exerciseRequest.Name);
+        return new ExerciseResponse(Guid.NewGuid(), createExerciseRequest.Name);
     }
 
     [HttpPut("{id:Guid}")]
-    public ExerciseResponse UpdateExercise([FromRoute] Guid id, [FromBody] ExerciseRequest exerciseRequest)
+    public ExerciseResponse UpdateExercise([FromRoute] Guid id, [FromBody] UpdateExerciseRequest updateExerciseRequest)
     {
-        return new ExerciseResponse(id, exerciseRequest.Name);
+        return new ExerciseResponse(id, updateExerciseRequest.Name);
     }
 }
